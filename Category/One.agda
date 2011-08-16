@@ -13,14 +13,8 @@ data OneMor : OneObject → OneObject → Set where
 comp : {A B C : OneObject} → OneMor B C → OneMor A B → OneMor A C 
 comp OneIdMor OneIdMor = OneIdMor
 
-≡-symm : {A B : OneObject} → Symmetric {zero} {zero} {OneMor A B} _≡_
-≡-symm refl = refl
-
-≡-trans : {A B : OneObject} → Transitive {zero} {zero} {OneMor A B} _≡_
-≡-trans refl refl = refl
-
 OneEquiv : {A B : OneObject} → IsEquivalence {zero} {zero} {OneMor A B} _≡_
-OneEquiv = record { refl = refl  ; sym = ≡-symm; trans = ≡-trans}
+OneEquiv = record { refl = refl  ; sym = ≡-sym; trans = ≡-trans}
 
 OneID : {A : OneObject} → OneMor A A
 OneID {OneObj} = OneIdMor
@@ -35,11 +29,16 @@ OneIdentityL {OneObj} {OneObj} {OneIdMor} = refl
 OneIdentityR : {A B : OneObject} {f : OneMor A B} → (comp f OneID) ≡ f
 OneIdentityR {OneObj} {OneObj} {OneIdMor} = refl 
 
+o-resp-≡ : {A B C : OneObject} {f g : OneMor A B} {h i : OneMor B C} → f ≡ g → h ≡ i → comp h f ≡ comp i g
+o-resp-≡ {OneObj} {OneObj} {OneObj} {f} {g} {h} {i} f≡g h≡i =
+  ≡-trans (cong (comp h) f≡g) (cong (λ x → comp x g) h≡i)
+
 
 isCategory : IsCategory {zero} {zero} {zero} OneObject OneMor _≡_ comp OneID
 isCategory = record { isEquivalence = OneEquiv
                     ; identityL = OneIdentityL
                     ; identityR = OneIdentityR
+                    ; o-resp-≈ = o-resp-≡
                     ; associative = OneAssoc
                     }
 
