@@ -127,12 +127,9 @@ Grp {c} {ℓ} = record { Obj = Group c ℓ
             (i ⟪ f ⟪ x ⟫ ⟫)           ≈⟨ _-Group⟶_.⟦⟧-cong i (f≈g x) ⟩
             (i ⟪ g ⟪ x ⟫ ⟫)           ∎
           where
-            module F = Group G₁
-            module M = Group G₂
             module T = Group G₃
             open IsEquivalence T.isEquivalence
             open EqR T.setoid
         associative : {G₁ G₂ G₃ G₄ : Group c ℓ} {f : G₃ -Group⟶ G₄} {g : G₂ -Group⟶ G₃} {h : G₁ -Group⟶ G₂}
                     → (f ∘ (g ∘ h)) ≈ ((f ∘ g) ∘ h)
         associative {G₁} {G₂} {G₃} {G₄} {f} {g} {h} = ≈-refl {G₁ = G₁} {F = f ∘ (g ∘ h)}
-
