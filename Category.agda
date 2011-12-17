@@ -39,14 +39,6 @@ record Category c₁ c₂ ℓ : Set (suc (c₁ ⊔ c₂ ⊔ ℓ)) where
                             ; associative = (IsEquivalence.sym (IsCategory.isEquivalence isCategory)) (IsCategory.associative isCategory)
                             ; o-resp-≈ = flip (IsCategory.o-resp-≈ isCategory)
                             }
-  dom : {A B : Obj} → Hom A B → Obj
-  dom {A} _ = A
-  cod : {A B : Obj} → Hom A B → Obj
-  cod {B = B} _ = B
-  homsetoid : {A B : Obj } → Setoid c₂ ℓ
-  homsetoid {A} {B} = record { Carrier = Hom A B
-                             ; isEquivalence = IsCategory.isEquivalence isCategory
-                             }
 
 Obj : ∀{c₁ c₂ ℓ} → (C : Category c₁ c₂ ℓ) → Set c₁
 Obj  C = Category.Obj C
@@ -65,6 +57,7 @@ infix  4 _[_≈_]
 
 Id : ∀{c₁ c₂ ℓ} {C : Category c₁ c₂ ℓ} → (A : Obj C) →  Hom C A A
 Id {C = C} A = Category.Id C {A}
+
 
 record IsFunctor {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level} (C : Category c₁ c₂ ℓ) (D : Category c₁′ c₂′ ℓ′)
                  (FObj : Obj C → Obj D)
