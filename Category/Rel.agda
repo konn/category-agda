@@ -64,3 +64,10 @@ Rels {ℓ} = record { Obj = RelObj ℓ
             rhs : ∀{i : A} {j : B} → P i j → (P ∘ RelId) i j
             rhs {i} {j} (Pij) = Comp {j = i} {Pij} {ReflRel}
 
+        o-resp-≈ : {A B C : RelObj ℓ} {P Q : G₁ -Group⟶ G₂} {R S : G₂ -Group⟶ G₃}
+                 → P ≈ Q → R ≈ S → (R ∘ P) ≈ (S ∘ Q)
+        o-resp-≈ {A} {B} {C} {P} {Q} {R} {S} P≈Q R≈S = exactly ? ?
+          where
+            module T = Group G₃
+            open IsEquivalence T.isEquivalence
+            open EqR T.setoid
