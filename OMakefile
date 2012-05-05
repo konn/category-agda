@@ -1,3 +1,5 @@
-.DEFAULT: 
+SRCS = $(glob **/*.agda)
+
+.DEFAULT: $(SRCS)
   (git commit -am "$(shell date +%Y-%m-%d\ %T\ %Z)" && git push origin master) || echo "nothing to commit nor push"
 
