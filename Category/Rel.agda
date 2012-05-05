@@ -51,7 +51,7 @@ Rels {ℓ} = record { Obj = RelObj ℓ
         identityL {A} {B} {P} = exactly lhs rhs
           where
             lhs : ∀{i : A} {j : B} → (RelId ∘ P) i j → P i j
-            lhs {i} {j} (Comp {Q = Pij})= Pij
+            lhs {i} {j} (Comp {Q = Pij}) = Pij
             rhs : ∀{i : A} {j : B} → P i j → (RelId ∘ P) i j
             rhs {i} {j} (Pij) = Comp {j = j} {ReflRel} {Pij}
 
