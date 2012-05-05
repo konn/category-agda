@@ -14,7 +14,6 @@ A -Set⟶ B = A → B
 SetId : ∀{ℓ} {A : Set ℓ} → A → A
 SetId x = x
 
-
 Sets : ∀{ℓ} → Category _ _ ℓ
 Sets {ℓ} = record { Obj = Set ℓ
                   ; Hom = _-Set⟶_
