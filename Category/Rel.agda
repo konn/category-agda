@@ -48,5 +48,5 @@ Rels {ℓ} = record { Obj = RelObj ℓ
              }
       where
         identityL : {A B : RelObj ℓ} {P : A -Rel⟶ B} → (RelId ∘ P) ≈ P
-        identityL {A} {B} {P} = exactly (λ{i}{j} (Comp (ReflRel .i) _) → ?) ?
+        identityL {A} {B} {P} = exactly (λ{i}{j} (Comp (ReflRel i) _) → ?) ?
 
