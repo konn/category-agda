@@ -28,5 +28,5 @@ Rels {ℓ} = record { Obj = RelObj ℓ
   where
     isCategory : IsCategory (RelObj ℓ) _-Rel⟶_ _≡_ _∘_ RelId
     isCategory =
-      record {}
+      record { isEquivalence {} }
 
