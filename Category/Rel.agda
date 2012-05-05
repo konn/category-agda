@@ -22,6 +22,9 @@ data _∘_ {ℓ} {A B C : RelObj ℓ} (P : B -Rel⟶ C ) (Q : A -Rel⟶ B) (i : 
 data _≈_ {ℓ} {A B : RelObj ℓ} (P Q : A -Rel⟶ B) : Set _ where
   exactly : P ⇒ Q → Q ⇒ P → P ≈ Q
 
+≈-refl : Reflexive _≈_
+≈-refl = _
+
 Rels : ∀{ℓ} → Category _ _ _
 Rels {ℓ} = record { Obj = RelObj ℓ
                   ; Hom = _-Rel⟶_
