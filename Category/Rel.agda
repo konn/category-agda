@@ -69,6 +69,6 @@ Rels {ℓ} = record { Obj = RelObj ℓ
         o-resp-≈ {P = P} {Q} {R} {S} (exactly P⇒Q Q⇒R) (exactly R⇒S S⇒R) = exactly lhs rhs
           where
             lhs : R ∘ P ⇒ S ∘ Q
-            lhs = _
+            lhs = ?
             rhs : S ∘ Q ⇒ R ∘ P
             rhs = _
