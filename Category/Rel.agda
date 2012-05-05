@@ -70,6 +70,6 @@ Rels {ℓ} = record { Obj = RelObj ℓ
           = exactly lhs rhs
           where
             lhs : ∀ {i : A} {j : C} → (R ∘ P) i j → (S ∘ Q) i j
-            lhs {i} {j} (Comp {a = Rkj} {b = Pik} ) = {!!}
+            lhs {i} {j} (Comp {a = Rkj} {b = Pik} ) = Comp {a = R⇒S Rkj} {b = P⇒Q Pik}
             rhs : S ∘ Q ⇒ R ∘ P
             rhs = _
