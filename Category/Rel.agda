@@ -53,5 +53,5 @@ Rels {ℓ} = record { Obj = RelObj ℓ
             lhs : ∀{i : A} {j : B} → (RelId ∘ P) i j → P i j
             lhs = {!!}
             rhs : ∀{i : A} {j : B} → P i j → (RelId ∘ P) i j
-            rhs = λ z → Comp {ℓ} {{!!}}
+            rhs = λ z → Comp {ℓ} {A} {B}
 
