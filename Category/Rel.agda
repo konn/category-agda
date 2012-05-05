@@ -61,5 +61,5 @@ Rels {ℓ} = record { Obj = RelObj ℓ
             lhs : ∀{i : A} {j : B} → (P ∘ RelId) i j → P i j
             lhs {i} {j} (Comp {a = Pij} {b = ReflRel}) = Pij
             rhs : ∀{i : A} {j : B} → P i j → (P ∘ RelId) i j
-            rhs {i} {j} (Pij) = Comp {j = j} {Pij} {ReflRel}
+            rhs {i} {j} (Pij) = Comp {j = i} {Pij} {ReflRel}
 
