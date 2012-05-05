@@ -28,6 +28,11 @@ data _≈_ {ℓ} {A B : RelObj ℓ} (P Q : A -Rel⟶ B) : Set _ where
 ≈-sym : ∀{ℓ} {A B : RelObj ℓ} {P Q : A -Rel⟶ B} → P ≈ Q → Q ≈ P
 ≈-sym (exactly P⇒Q Q⇒P) = exactly Q⇒P P⇒Q
 
+≈-trans : ∀{ℓ} {A B : RelObj ℓ} {P Q R : A -Rel⟶ B}
+        → P ≈ Q → Q ≈ R → P ≈ R
+≈-trans (exactly P⇒Q Q⇒P) (exactly Q⇒R R⇒Q)
+  = exactly ? ?
+
 Rels : ∀{ℓ} → Category _ _ _
 Rels {ℓ} = record { Obj = RelObj ℓ
                   ; Hom = _-Rel⟶_
