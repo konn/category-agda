@@ -60,15 +60,15 @@ Rels {ℓ} = record { Obj = RelObj ℓ
         identityR {A} {B} {P} = exactly lhs rhs
           where
             lhs : ∀{i : A} {j : B} → (P ∘ RelId) i j → P i j
-            lhs {i} {j} (Comp {a = Pij} {b = ReflRel}) = Pij
+            lhs (Comp {a = Pij} {b = ReflRel}) = Pij
             rhs : ∀{i : A} {j : B} → P i j → (P ∘ RelId) i j
-            rhs {i} {j} (Pij) = Comp {j = i} {Pij} {ReflRel}
+            rhs {i} Pij = Comp {j = i} {Pij} {ReflRel}
 
         o-resp-≈ : {A B C : RelObj ℓ} {P Q : A -Rel⟶ B} {R S : B -Rel⟶ C}
                  → P ≈ Q → R ≈ S → (R ∘ P) ≈ (S ∘ Q)
         o-resp-≈ {P = P} {Q} {R} {S} (exactly P⇒Q Q⇒R) (exactly R⇒S S⇒R) = exactly lhs rhs
           where
-            lhs : R ∘ P ⇒ S ∘ Q
+            lhs : ∀ {i : A} {j : B} → (R ∘ P) i j → (S ∘ Q) i j
             lhs = {!!}
             rhs : S ∘ Q ⇒ R ∘ P
             rhs = _
