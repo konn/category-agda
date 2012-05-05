@@ -84,4 +84,4 @@ Rels {ℓ} = record { Obj = RelObj ℓ
               Comp {a = Comp {a = Pkl} {b = Qjk}} {b = Rij}
             rhs : ∀{i : A} {l : D} → ((P ∘ Q) ∘ R) i l → (P ∘ (Q ∘ R)) i l
             rhs {i} {l} (Comp {a = Comp {a = Pkl} {b = Qjk}} {b = Rij}) =
-              Comp {a = Pkl} {b = Comp {a = Qjk} {b = Pij}}
+              Comp {a = Pkl} {b = Comp {a = Qjk} {b = Rij}}
