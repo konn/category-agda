@@ -26,7 +26,7 @@ data _≈_ {ℓ} {A B : RelObj ℓ} (P Q : A -Rel⟶ B) : Set _ where
 ≈-refl = exactly (λ z → z) (λ z → z)
 
 ≈-sym : ∀{ℓ} {A B : RelObj ℓ} {P Q : A -Rel⟶ B} → P ≈ Q → Q ≈ P
-≈-sym P≈Q = {!!}
+≈-sym (exactly P⇒Q Q⇒P) = exactly Q⇒P P⇒Q
 
 Rels : ∀{ℓ} → Category _ _ _
 Rels {ℓ} = record { Obj = RelObj ℓ
