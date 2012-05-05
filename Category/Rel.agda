@@ -23,7 +23,7 @@ data _≈_ {ℓ} {A B : RelObj ℓ} (P Q : A -Rel⟶ B) : Set _ where
   exactly : P ⇒ Q → Q ⇒ P → P ≈ Q
 
 ≈-refl : ∀{ℓ} {A B : RelObj ℓ} {P : A -Rel⟶ B} → P ≈ P
-≈-refl {A = A} {B} {P} = {!!}
+≈-refl {A = A} {B} {P} = exactly (λ {i} {j} z → z) (λ {i} {j} z → z)
 
 Rels : ∀{ℓ} → Category _ _ _
 Rels {ℓ} = record { Obj = RelObj ℓ
