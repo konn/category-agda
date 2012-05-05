@@ -20,7 +20,7 @@ data _∘_ {ℓ} {A B C : RelObj ℓ} (P : B -Rel⟶ C ) (Q : A -Rel⟶ B) (i : 
   Comp : {j : B} → {a : P j k} → {b : Q i j} → _∘_ P Q i k
 
 _≈_ : ∀{ℓ} {A B : RelObj ℓ} → Rel (A -Rel⟶ B) _
-_≈_ {A = A} {B} P Q = ∀(a : A) (b : B) → (P a b → Q a b) , (Q a b → P a b)
+_≈_ P Q = P ⇒ Q , Q ⇒ P
 
 Rels : ∀{ℓ} → Category _ _ _
 Rels {ℓ} = record { Obj = RelObj ℓ
