@@ -23,4 +23,3 @@ data RelId {ℓ} {A : RelObj ℓ} (x : A) : A → Set (suc ℓ) where
 data _∘_ {ℓ} {A B C : RelObj ℓ} (P : B -Rel⟶ C ) (Q : A -Rel⟶ B) (i : A) (k : C) : Set (suc ℓ) where
   Comp : {j : B} → (P j k) → (Q i j) → _∘_ P Q i k
 
--- ねむい
