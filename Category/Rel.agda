@@ -44,7 +44,7 @@ Rels {ℓ} = record { Obj = RelObj ℓ
     isCategory : IsCategory (RelObj ℓ) _-Rel⟶_ _≈_ _∘_ RelId
     isCategory =
       record { isEquivalence = record { refl = ≈-refl ; trans = ≈-trans ; sym = ≈-sym}
-             ; identityL   = λ{A} {B} {f} → identityL {A} {B} {f}
+             ; identityL   = λ {P=P} → identityL {P=P}
              ; identityR   = λ {P=P} → identityR {P=P}
              ; o-resp-≈    = λ {P=P} {Q} {R} {S} → o-resp-≈ {P=P}{Q}{R}{S}
              ; associative = λ {P=P} {Q} {R} → associative {P=P} {Q} {R} 
