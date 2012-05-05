@@ -1,11 +1,11 @@
 {-# OPTIONS --universe-polymorphism #-}
 module Category.Rel where
 open import Category
-import Relation.Binary.EqReasoning as EqR
 open import Relation.Binary.Core
 open import Relation.Binary
 open import Level
 open import Data.Product
+
 
 RelObj : ∀ ℓ → Set (suc ℓ)
 RelObj ℓ = Set ℓ
@@ -85,3 +85,4 @@ Rels {ℓ} = record { Obj = RelObj ℓ
             rhs : ∀{i : A} {l : D} → ((P ∘ Q) ∘ R) i l → (P ∘ (Q ∘ R)) i l
             rhs {i} {l} (Comp {a = Comp {a = Pkl} {b = Qjk}} {b = Rij}) =
               Comp {a = Pkl} {b = Comp {a = Qjk} {b = Rij}}
+
