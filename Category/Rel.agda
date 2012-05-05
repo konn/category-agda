@@ -5,6 +5,7 @@ import Relation.Binary.EqReasoning as EqR
 open import Relation.Binary.Core
 open import Relation.Binary
 open import Level
+open import Data.Product
 
 RelObj : ∀ ℓ → Set (suc ℓ)
 RelObj ℓ = Set ℓ
@@ -19,7 +20,7 @@ data _∘_ {ℓ} {A B C : RelObj ℓ} (P : B -Rel⟶ C ) (Q : A -Rel⟶ B) (i : 
   Comp : {j : B} → {a : P j k} → {b : Q i j} → _∘_ P Q i k
 
 _≈_ : ∀{ℓ} {A B : RelObj ℓ} → Rel (A -Rel⟶ B) _
-_≈_ {A = A} {B} P Q = ∀(a : A) (b : B) → P a b → Q a b
+_≈_ {A = A} {B} P Q = ∀(a : A) (b : B) → (P a b → Q a b , Q a b → P a b)
 
 Rels : ∀{ℓ} → Category _ _ _
 Rels {ℓ} = record { Obj = RelObj ℓ
