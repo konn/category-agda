@@ -77,4 +77,4 @@ Rels {ℓ} = record { Obj = RelObj ℓ
 
         associative : {A B C D : RelObj ℓ} {P : C -Rel⟶ D} {Q : B -Rel⟶ C} {R : A -Rel⟶ B}
                     → (P ∘ (Q ∘ R)) ≈ ((P ∘ Q) ∘ R)
-        associative {A} {B} {C} {D} {P} {Q} {R} = ?
+        associative {A} {B} {C} {D} {P} {Q} {R} = exactly {!!} ?
