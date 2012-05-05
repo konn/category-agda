@@ -66,6 +66,7 @@ Rels {ℓ} = record { Obj = RelObj ℓ
 
         o-resp-≈ : {A B C : RelObj ℓ} {P Q : A -Rel⟶ B} {R S : B -Rel⟶ C}
                  → P ≈ Q → R ≈ S → (R ∘ P) ≈ (S ∘ Q)
-        o-resp-≈ (exactly P⇒Q Q⇒R) (exactly R⇒S S⇒R) = exactly lhs rhs
+        o-resp-≈ {P = P} {Q} {R} {S} (exactly P⇒Q Q⇒R) (exactly R⇒S S⇒R) = exactly lhs rhs
           where
-            
+            lhs : R ∘ P ⇒ S ∘ Q
+            lhs = _
