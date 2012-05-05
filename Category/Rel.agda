@@ -47,7 +47,7 @@ Rels {ℓ} = record { Obj = RelObj ℓ
              ; identityL   = λ{A} {B} {f} → identityL {A} {B} {f}
              ; identityR   = λ{A} {B} {f} → identityR {A} {B} {f}
              ; o-resp-≈    = λ{A} {B} {C} {P} {Q} {R} {S} → o-resp-≈ {A}{B}{C}{P}{Q}{R}{S}
-             ; associative = λ {A} {B} {C} {D} {P} {Q} {R} → associative {A} {B} {C} {D} {P} {Q} {R} 
+             ; associative = λ {P=P} {Q} {R} → associative {A} {B} {C} {D} {P} {Q} {R} 
              }
       where
         identityL : {A B : RelObj ℓ} {P : A -Rel⟶ B} → (RelId ∘ P) ≈ P
