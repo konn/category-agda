@@ -80,6 +80,6 @@ Rels {ℓ} = record { Obj = RelObj ℓ
         associative {A} {B} {C} {D} {P} {Q} {R} = exactly lhs rhs
           where
             lhs : ∀{i : A} {l : D} → (P ∘ (Q ∘ R)) i l → ((P ∘ Q) ∘ R) i l
-            lhs {i} {l} (Comp {a = Pkl} {b = QRik}) = {!!}
+            lhs {i} {l} (Comp {a = Pkl} {b = QRik}) = Comp {!!} ?
             rhs : ∀{i : A} {l : D} → ((P ∘ Q) ∘ R) i l → (P ∘ (Q ∘ R)) i l
-            rhs {i} {l} (Comp {a = PQjl} {b = Rij}) = {!!}
+            rhs {i} {l} (Comp {a = PQjl} {b = Rij}) = Comp {!!} ?
