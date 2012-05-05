@@ -31,5 +31,6 @@ Sets {ℓ} = record { Obj = Set ℓ
                         ; associative   = refl
                         }
       where
-        o-resp-≈ : {A B C : Set ℓ}
-
+        o-resp-≈ : {A B C : Set ℓ} {f g : A -Set⟶ B} {h i : B -Set⟶ C}
+                 → f ≡ g → h ≡ i → h o f ≡ i o g
+        o-resp-≈ refl refl = refl
