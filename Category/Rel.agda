@@ -68,6 +68,6 @@ Rels {ℓ} = record { Obj = RelObj ℓ
                  → P ≈ Q → R ≈ S → (R ∘ P) ≈ (S ∘ Q)
         o-resp-≈ {A} {B} {C} {P} {Q} {R} {S} P≈Q R≈S = exactly ? ?
           where
-            module T = Group G₃
+            module T = REL C
             open IsEquivalence T.isEquivalence
             open EqR T.setoid
