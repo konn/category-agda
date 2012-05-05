@@ -4,8 +4,6 @@ open import Category
 open import Relation.Binary.Core
 open import Relation.Binary
 open import Level
-open import Data.Product
-
 
 RelObj : ∀ ℓ → Set (suc ℓ)
 RelObj ℓ = Set ℓ
@@ -86,3 +84,5 @@ Rels {ℓ} = record { Obj = RelObj ℓ
             rhs {i} {l} (Comp {a = Comp {a = Pkl} {b = Qjk}} {b = Rij}) =
               Comp {a = Pkl} {b = Comp {a = Qjk} {b = Rij}}
 
+-- * Graph Fuctor
+GObj : 
