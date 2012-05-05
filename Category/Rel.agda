@@ -48,5 +48,8 @@ Rels {ℓ} = record { Obj = RelObj ℓ
              }
       where
         identityL : {A B : RelObj ℓ} {P : A -Rel⟶ B} → (RelId ∘ P) ≈ P
-        identityL {A} {B} {P} = exactly ? ?
+        identityL {A} {B} {P} = exactly {!!} {!!}
+          where
+            lhs : ∀{i : A} {j : B} → (RelId ∘ P) i j → P i j
+            lhs = ?
 
