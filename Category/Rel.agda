@@ -47,6 +47,6 @@ Rels {ℓ} = record { Obj = RelObj ℓ
              ; identityL = λ{A} {B} {f} → identityL {A} {B} {f}
              }
       where
-        identityL : {A B : RelObj ℓ} {f : A -Rel⟶ B} → (RelId ∘ f) ≈ f
+        identityL : {A B : RelObj ℓ} {P : A -Rel⟶ B} → (RelId ∘ P) ≈ P
         identityL {A} {B} {f} = exactly {!!} {!!}
 
