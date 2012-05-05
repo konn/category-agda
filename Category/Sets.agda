@@ -23,7 +23,7 @@ Sets {ℓ} = record { Obj = Set ℓ
                   }
   where
     isCategory : IsCategory (Set ℓ) _-Set⟶_ _≡_ _o_ SetId
-    isCategory = record { isEquivalence = record {refl = _≡_.refl ; trans = ≡-trans ; sym = ≡-sym}
+    isCategory = record { isEquivalence = record {refl = refl ; trans = ≡-trans ; sym = ≡-sym}
                         ; identityL     = refl
                         ; identityR     = refl
                         ; o-resp-≈      = o-resp-≈
