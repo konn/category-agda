@@ -72,4 +72,4 @@ Rels {ℓ} = record { Obj = RelObj ℓ
             lhs : ∀ {i : A} {j : C} → (R ∘ P) i j → (S ∘ Q) i j
             lhs {i} {j} (Comp {a = Rkj} {b = Pik} ) = Comp {a = R⇒S Rkj} {b = P⇒Q Pik}
             rhs : S ∘ Q ⇒ R ∘ P
-            rhs = _
+            rhs {i} {j} (Comp {a = Skj} {b = Qik} ) = Comp {a = S⇒R Skj} {b = Q⇒P Qik} 
