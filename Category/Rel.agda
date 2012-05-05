@@ -43,7 +43,7 @@ Rels {ℓ} = record { Obj = RelObj ℓ
   where
     isCategory : IsCategory (RelObj ℓ) _-Rel⟶_ _≈_ _∘_ RelId
     isCategory =
-      record { isEquivalence = record { refl = ≈-refl ; trans = ≈-trans ; sym = _}
+      record { isEquivalence = record { refl = ≈-refl ; trans = ≈-trans ; sym = ≈-sym}
              ; identityL = λ{A} {B} {f} → identityL {A} {B} {f}
              }
       where
