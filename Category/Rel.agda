@@ -19,8 +19,8 @@ data RelId {ℓ} {A : RelObj ℓ} (x : A) : A → Set (suc ℓ) where
 data _∘_ {ℓ} {A B C : RelObj ℓ} (P : B -Rel⟶ C ) (Q : A -Rel⟶ B) (i : A) (k : C) : Set (suc ℓ) where
   Comp : {j : B} → {a : P j k} → {b : Q i j} → _∘_ P Q i k
 
-_≈_ : ∀{ℓ} {A B : RelObj ℓ} → Rel (A -Rel⟶ B) _
-P ≈ Q = P ⇒ Q 
+data _≈_ {ℓ} {A B : RelObj ℓ} : Rel (A -Rel⟶ B) _ where
+  exactly : P ⇒ Q → Q ⇒ P → P ≈ Q
 
 Rels : ∀{ℓ} → Category _ _ _
 Rels {ℓ} = record { Obj = RelObj ℓ
