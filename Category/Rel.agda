@@ -21,5 +21,5 @@ data RelId {ℓ} {A : RelObj ℓ} (x : A) : A → Set (suc ℓ) where
   ReflRel : RelId x x
 
 data _∘_ {ℓ} {A B C : RelObj ℓ} (P : B -Rel⟶ C ) (Q : A -Rel⟶ B) (i : A) (k : C) : Set (suc ℓ) where
-  Comp : {j : B} → (P j k) → (Q i j) → _∘_ P Q i k
+  Comp : {j : B} → {a : P j k} → {b : Q i j} → _∘_ P Q i k
 
