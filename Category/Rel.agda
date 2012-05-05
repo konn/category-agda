@@ -81,5 +81,5 @@ Rels {ℓ} = record { Obj = RelObj ℓ
           where
             lhs : ∀{i : A} {l : D} → (P ∘ (Q ∘ R)) i l → ((P ∘ Q) ∘ R) i l
             lhs {i} {l} (Comp {a = Pkl} {b = QRik}) = {!!}
-            rhs : ∀{i : A} {i : D} → ((P ∘ Q) ∘ R) i l → (P ∘ (Q ∘ R)) i l
+            rhs : ∀{i : A} {l : D} → ((P ∘ Q) ∘ R) i l → (P ∘ (Q ∘ R)) i l
             rhs {i} {l} (Comp {a = PQjl} {b = Rij}) = {!!}
