@@ -33,7 +33,7 @@ data _≈_ {ℓ} {A B : RelObj ℓ} (P Q : A -Rel⟶ B) : Set _ where
 ≈-trans (exactly P⇒Q Q⇒P) (exactly Q⇒R R⇒Q)
   = exactly (λ z → Q⇒R (P⇒Q z)) (λ z → Q⇒P (R⇒Q z))
 
-Rels : ∀{ℓ} → Category _ _ {!!}
+Rels : ∀{ℓ} → Category _ _ (suc ℓ)
 Rels {ℓ} = record { Obj = RelObj ℓ
                   ; Hom = _-Rel⟶_
                   ; _o_ = _∘_
