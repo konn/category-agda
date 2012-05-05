@@ -61,8 +61,8 @@ CosliceId {C = C} {O} {F = F} =
     open isCat
     f = CosliceObj.arrow F
 
-_/_ : ∀{c₁ c₂ ℓ} → (C : Category c₁ c₂ ℓ) → (O : Obj C) → Category _ _ _
-_/_ {c₁} {c₂} {ℓ} C O = record { Obj = CosliceObj C O
+_\\_ : ∀{c₁ c₂ ℓ} → (C : Category c₁ c₂ ℓ) → (O : Obj C) → Category _ _ _
+_\\_ {c₁} {c₂} {ℓ} C O = record { Obj = CosliceObj C O
                                ; Hom = _⟶_ {C = C} {O}
                                ; Id  = CosliceId
                                ; _o_ = _∘_
