@@ -70,3 +70,5 @@ Rels {ℓ} = record { Obj = RelObj ℓ
           where
             lhs : R ∘ P ⇒ S ∘ Q
             lhs = _
+            rhs : S ∘ Q ⇒ R ∘ P
+            rhs = _
