@@ -27,8 +27,8 @@ record Cone {c₁′ c₂′ ℓ′} {J : Category.Category c₁′ c₂′ ℓ�
 
 record _-Cone⟶_ {c₁′ c₂′ ℓ′} {J : Category.Category c₁′ c₂′ ℓ′} {D : Diagram J} (C₁ : Cone D) (C₂ : Cone D)
          : Set (suc (c₁ ⊔ c₂ ⊔ ℓ ⊔ c₁′ ⊔ c₂′ ⊔ ℓ′)) where
-  private
-    open Cone
+  -- private
+  open Cone
   field
     morphism : Hom (apex C₁) (apex C₂)
     .isConeMorphism : ∀ {j} → proj C₁ j ≈ proj C₂ j o morphism
@@ -40,26 +40,20 @@ ConeId : ∀{c₁′ c₂′ ℓ′} {J : Category.Category c₁′ c₂′ ℓ�
 ConeId {C₁ = C₁} =
   record { morphism = Id { apex C₁ } ; isConeMorphism = proof }
   where
-    open Category.IsCategory isCategory
-    open IsEquivalence isEquivalence
-      renaming (sym to ≈-sym)
-    open EqR homsetoid
     .proof : ∀ {j} → proj C₁ j ≈ proj C₁ j o Id
     proof = ≈-sym identityR
+      where open Category.IsCategory isCategory
+            open IsEquivalence isEquivalence renaming (sym to ≈-sym)
+
+
     
 _∘_ : ∀ {c₁′ c₂′ ℓ′} {J : Category.Category c₁′ c₂′ ℓ′} {D : Diagram J} {C₁ C₂ C₃ : Cone D}
    → C₂ -Cone⟶ C₃ → C₁ -Cone⟶ C₂ → C₁ -Cone⟶ C₃
 _∘_ {D = D} {C₁} {C₂} {C₃} C₂toC₃ C₁toC₂ =
   record { morphism = morph ; isConeMorphism = proof }
   where
-    open Category.IsCategory isCategory
-    open IsEquivalence isEquivalence
-      renaming (refl to ≈-refl)
-    open IsEquivalence isEquivalence
-      renaming (sym to ≈-sym)
     morph = morphism C₂toC₃ o morphism C₁toC₂
-    open EqR homsetoid
-    proof : {j : index D} → proj C₁ j ≈ proj C₃ j o (morphism C₂toC₃ o morphism C₁toC₂)
+    .proof : {j : index D} → proj C₁ j ≈ proj C₃ j o (morphism C₂toC₃ o morphism C₁toC₂)
     proof {j} =
       begin
         proj C₁ j                                       ≈⟨ isConeMorphism C₁toC₂ ⟩
@@ -67,3 +61,9 @@ _∘_ {D = D} {C₁} {C₂} {C₃} C₂toC₃ C₁toC₂ =
         (proj C₃ j o morphism C₂toC₃) o morphism C₁toC₂   ≈⟨ ≈-sym associative ⟩
         proj C₃ j o (morphism C₂toC₃ o morphism C₁toC₂)
       ∎
+      where open Category.IsCategory isCategory
+            open IsEquivalence isEquivalence
+              renaming (refl to ≈-refl)
+            open IsEquivalence isEquivalence
+              renaming (sym to ≈-sym)
+            open EqR homsetoid
