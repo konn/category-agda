@@ -1,4 +1,4 @@
-module HomReasoning  where 
+module Category.HomReasoning  where 
 
 -- Shinji KONO <kono@ie.u-ryukyu.ac.jp>
 
